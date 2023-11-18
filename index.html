@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <table id="calendar-table">
+      <thead>
+        <tr>
+          <td colspan="5" id="year-month">
+            <span id="month"></span><span id="year"></span>
+          </td>
+          <td class="arrow" id="prev"><</td>
+          <td class="arrow" id="next">></td>
+        </tr>
+        <tr id="space"></tr>
+        <tr id="days">
+          <td><span style="color: rgb(248, 128, 128)">SUN</span></td>
+          <td><span>MON</span></td>
+          <td><span>TUE</span></td>
+          <td><span>WED</span></td>
+          <td><span>THU</span></td>
+          <td><span>FRI</span></td>
+          <td><span style="color: rgb(146, 146, 252)">SAT</span></td>
+        </tr>
+      </thead>
+      <tbody id="calendar-table-body"></tbody>
+    </table>
+    <div class="schedule-maker">
+      <div id="box">
+        <p id="schedule-date">Date</p>
+        <p id="target-date"></p>
+        <p id="schedule-time">Time</p>
+        <form id="schedule-maker-form">
+          <input id="schedule-input-time" type="time" required />
+          <p id="schedule-content">Schedule</p>
+          <lael
+            ><input
+              id="schedule-input-content"
+              type="text"
+              placeholder="write your schedule"
+              required
+          /></lael>
+          <div class="buttons">
+            <button id="submit-button" type="sumit">저장</button>
+            <button id="reset-button" class="reset-button" type="reset">
+              취소
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="schedule-changer">
+      <div id="box2">
+        <p id="schedule-change-date">Date</p>
+        <p id="target-change-date"></p>
+        <p id="schedule-change-time">Time</p>
+        <form id="schedule-changer-form">
+          <input id="schedule-change-input-time" type="time" required />
+          <p id="schedule-change-content">Schedule</p>
+          <label
+            ><input
+              id="schedule-change-input-content"
+              type="text"
+              placeholder="write your schedule"
+          /></label>
+          <div class="buttons">
+            <button id="change-button" type="sumit">저장</button>
+            <button id="delete-button" type="submit">삭제</button>
+            <button id="reset-button2" class="reset-button" type="reset">
+              취소
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="./calendar.js"></script>
+  </body>
+</html>
