@@ -2,80 +2,158 @@
 
 * {
   font-family: "Spoqa Han Sans Neo", "sans-serif";
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 body {
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  margin: 50px;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding-left: 400px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-#calendar-table {
-  width: 80vw;
-  height: 85vh;
-  border-collapse: collapse;
+#schedules-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  box-shadow: 0 4px 20px 8px rgba(238, 98, 189, 0.3);
+}
+
+.calendar-table {
   cursor: pointer;
+  border-collapse: collapse;
+  color: #ee6899;
+}
+
+.odd {
+  color: #78d8df;
+}
+
+.odd .cell {
+  border: 3px solid #78d8df;
+}
+
+.odd .today {
+  color: #ff4500;
+  background: linear-gradient(to top, #ff4500, #ff4500, white, white);
+}
+
+.odd .haveSchedule {
+  background: linear-gradient(to top, #ff4500, #f97647, white, white);
+}
+
+.odd #month > span {
+  background-color: #78d8df;
+}
+
+.odd .schedule-item:hover {
+  background-color: #ee689944;
+}
+
+.odd .week-cell {
+  color: #ff4500;
+}
+
+.odd .cell-empty {
+  color: #ff4500;
 }
 
 .choiced {
   color: rgb(194, 93, 252);
-  font-weight: bold;
 }
 
 .cell {
-  margin: 0;
-  width: 10vw;
-  height: 10vh;
-  border: 1px solid lightgray;
-  vertical-align: top;
+  width: 100px;
+  height: 100px;
+  border: 3px solid #ee6899;
+  border-radius: 4px;
+  padding: 10px;
 }
 
-.cell:hover {
-  border: 2px solid lightgray;
+.cell > p {
+  font-size: 24px;
 }
 
-.cell p {
-  margin: 5px 0;
+.cell-empty {
+  color: #78d8df;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 10px;
+}
+
+.week-cell {
+  color: #78d8df;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 10px;
+}
+
+#year-month {
+  position: relative;
 }
 
 #month {
-  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#month,
+#month > span {
+  background-color: #ee6899;
+  color: white;
+  font-size: 36px;
+  font-weight: 400;
+  margin-right: -10px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+}
+
 #year {
-  font-size: 50px;
-  font-weight: 1000;
-  color: rgb(47, 207, 173);
-  width: auto;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .arrow {
-  font-size: 30px;
-}
-
-#days td {
-  line-height: 32px;
-}
-
-.sat {
-  color: rgb(146, 146, 252);
-}
-
-.sun {
-  color: rgb(248, 128, 128);
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .schedule-maker,
 .schedule-changer {
-  width: 400px;
-  height: 98%;
+  width: 600px;
+  height: 600px;
   position: fixed;
-  top: 0;
-  right: -400px;
-  transition: right 0.3s ease-in-out;
+  top: calc((100vh - 600px) / 2);
+  left: calc((100vw - 600px) / 2);
+  display: none;
+  padding: 50px;
+  background-color: white;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 input[type="time"] {
@@ -86,91 +164,89 @@ input[type="time"] {
   height: 10%;
   cursor: pointer;
   margin-bottom: 50px;
+  color: black;
 }
 
 .show {
-  right: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .bar {
-  font-size: 0.6vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(221, 173, 233, 0.7);
-  height: 1.5vh;
-  margin-bottom: 1vh;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-top: 5px;
   border: none;
-}
-
-.bar:hover {
-  border: 1px solid rgba(229, 133, 253, 0.7);
-}
-
-.bar p {
-  margin: 0 0.7vw;
+  padding: 3px 10px;
+  border-radius: 4px;
+  color: black;
 }
 
 #box,
 #box2 {
-  text-align: start;
   width: 100%;
+  color: black;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  background-color: rgb(0, 0, 0, 0.8);
-  padding: 1vh 3vw;
-  color: white;
-  position: relative;
 }
 
 #target-date,
 #target-change-date {
-  margin-top: 0;
-  font-size: 40px;
+  font-size: 32px;
+  margin-bottom: 40px;
 }
 
 #schedule-input-content,
 #schedule-change-input-content {
-  margin-top: 0;
-  margin-bottom: 4vh;
-  border: none;
-  border-bottom: 2px solid white;
+  border: 2px solid black;
+  border-radius: 5px;
   width: 70%;
-  padding: 5px;
-  font-size: 20px;
+  height: 50px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
   background-color: transparent;
-  color: white;
+  color: black;
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 #schedule-input-content:focus,
 #schedule-change-input-content:focus {
-  outline: none;
+  outline: 2px solid #ee6899;
+  border: none;
 }
 
 .buttons {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 400px;
-  margin: 0;
+  margin-top: auto;
   display: flex;
-  justify-content: space-between;
 }
 
 #submit-button,
 #change-button,
 #delete-button,
 .reset-button {
-  width: 55%;
+  width: 50%;
   height: 60px;
   border: none;
-  background-color: rgb(255, 75, 120);
-  color: lightgray;
+  background-color: #ee6899;
+  color: white;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
+}
+
+.odd #submit-button,
+.odd #change-button,
+.odd .reset-button {
+  background-color: #78d8df;
 }
 
 .reset-button {
-  background-color: rgb(255, 147, 75);
+  background-color: white;
+  color: #ee6899;
 }
 
 #delete-button {
@@ -179,22 +255,69 @@ input[type="time"] {
 
 #schedule-input-time,
 #schedule-change-input-time {
-  background-color: rgb(50, 47, 53);
-  color: lightgray;
+  color: black;
+  width: 70%;
+  height: 50px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  border: 2px solid black;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
-  background-color: lightgray;
+  background-color: white;
 }
 
+#schedule-input-time:focus,
+#schedule-change-input-time:focus {
+  outline: 2px solid #ee6899;
+  border: none;
+}
 #space {
   height: 3vh;
 }
 
+#schedule-maker-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .today {
-  background: linear-gradient(
-    to right bottom,
-    rgb(255, 255, 255),
-    rgb(178, 255, 188)
-  );
+  color: #78d8df;
+  font-weight: 500;
+  background: linear-gradient(to top, #78d8df, #c3fbff, white, white);
+}
+
+.haveSchedule {
+  background: linear-gradient(to top, #78d8df, #c3fbff, white, white);
+}
+
+.work-day {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: black;
+  cursor: pointer;
+}
+
+.schedule-item:hover {
+  background-color: #ee689944;
+}
+
+.bar-title {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 20px;
+  color: #ee6899;
 }

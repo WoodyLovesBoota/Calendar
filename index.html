@@ -7,59 +7,57 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <table id="calendar-table">
+    <table class="calendar-table">
+      <div id="schedules-box"></div>
       <thead>
         <tr>
-          <td colspan="5" id="year-month">
-            <span id="month"></span><span id="year"></span>
-          </td>
           <td class="arrow" id="prev"><</td>
+          <td colspan="5" id="year-month">
+            <div id="month"></div>
+            <span id="year"></span>
+          </td>
           <td class="arrow" id="next">></td>
         </tr>
         <tr id="space"></tr>
         <tr id="days">
-          <td><span style="color: rgb(248, 128, 128)">SUN</span></td>
-          <td><span>MON</span></td>
-          <td><span>TUE</span></td>
-          <td><span>WED</span></td>
-          <td><span>THU</span></td>
-          <td><span>FRI</span></td>
-          <td><span style="color: rgb(146, 146, 252)">SAT</span></td>
+          <td class="week-cell">일</td>
+          <td class="week-cell">월</td>
+          <td class="week-cell">화</td>
+          <td class="week-cell">수</td>
+          <td class="week-cell">목</td>
+          <td class="week-cell">금</td>
+          <td class="week-cell">토</td>
         </tr>
       </thead>
       <tbody id="calendar-table-body"></tbody>
     </table>
     <div class="schedule-maker">
       <div id="box">
-        <p id="schedule-date">Date</p>
         <p id="target-date"></p>
-        <p id="schedule-time">Time</p>
+        <p id="schedule-time">시간</p>
         <form id="schedule-maker-form">
-          <input id="schedule-input-time" type="time" required />
-          <p id="schedule-content">Schedule</p>
-          <lael
-            ><input
-              id="schedule-input-content"
-              type="text"
-              placeholder="write your schedule"
-              required
-          /></lael>
+          <input id="schedule-input-time" type="time" autocomplete="off" required />
+          <p id="schedule-content">일정</p>
+          <input
+            id="schedule-input-content"
+            type="text"
+            placeholder="write your schedule"
+            autocomplete="off"
+            required
+          />
           <div class="buttons">
             <button id="submit-button" type="sumit">저장</button>
-            <button id="reset-button" class="reset-button" type="reset">
-              취소
-            </button>
+            <button id="reset-button" class="reset-button" type="reset">취소</button>
           </div>
         </form>
       </div>
     </div>
     <div class="schedule-changer">
       <div id="box2">
-        <p id="schedule-change-date">Date</p>
         <p id="target-change-date"></p>
-        <p id="schedule-change-time">Time</p>
+        <p id="schedule-change-time">시간</p>
         <form id="schedule-changer-form">
-          <input id="schedule-change-input-time" type="time" required />
+          <input id="schedule-change-input-time" type="time" autocomplete="off" required />
           <p id="schedule-change-content">Schedule</p>
           <label
             ><input
@@ -69,10 +67,8 @@
           /></label>
           <div class="buttons">
             <button id="change-button" type="sumit">저장</button>
-            <button id="delete-button" type="submit">삭제</button>
-            <button id="reset-button2" class="reset-button" type="reset">
-              취소
-            </button>
+            <button id="delete-button">삭제</button>
+            <button id="reset-button2" class="reset-button" type="reset">취소</button>
           </div>
         </form>
       </div>
